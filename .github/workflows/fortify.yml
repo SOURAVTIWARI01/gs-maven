@@ -50,8 +50,7 @@ jobs:
           distribution: 'zulu'
       - name: Run Bash script
         run: ls -ltrh           
-      - name: Run Bash script
-        run: chmod -R 777 gs-maven
+
       # Prepare source+dependencies for upload. The default example is for a Maven project that uses pom.xml.
       # TODO: Update PACKAGE_OPTS based on the ScanCentral Client documentation for your project's included tech stack(s). Helpful hints:
       #   ScanCentral Client will download dependencies for maven (-bt mvn) and gradle (-bt gradle).
@@ -86,7 +85,8 @@ jobs:
           FOD_RELEASE_ID: ${{ secrets.FOD_RELEASE_ID }}
           FOD_UPLOADER_OPTS: "-ep SingleScanOnly -pp 2 -I 0 -apf"
           FOD_UPLOADER_NOTES: 'Triggered by GitHub Actions (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})'
-
+      - name: Run Bash script
+        run: ls -ltrh  
       # Once scan completes, pull SAST issues from Fortify on Demand and generate SARIF output.
     #  - name: Export results to GitHub-optimized SARIF
       #  uses: fortify/gha-export-vulnerabilities@fcb374411cff9809028c911dabb8b57dbdae623b
