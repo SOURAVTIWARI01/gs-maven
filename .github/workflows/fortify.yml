@@ -2,7 +2,7 @@
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
-#####
+#######
 ################################################################################################################################################
 # Fortify lets you build secure software fast with an appsec platform that automates testing throughout the DevSecOps pipeline. Fortify static,#
 # dynamic, interactive, and runtime security testing is available on premises or as a service. To learn more about Fortify, start a free trial #
@@ -75,10 +75,10 @@ jobs:
       - name: Download Fortify on Demand Universal CI Tool
         uses: fortify/gha-setup-fod-uploader@6e6bb8a33cb476e240929fa8ebc739ff110e7433
       - name: Perform SAST Scan
-        run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_UPLOADER_NOTES"
+        run: java -jar FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_UPLOADER_NOTES"
         env:
           #FOD_URL: "https://ams.fortify.com/"
-          FOD_UPLOAD_JAR: ${{ secrets.FOD_UPLOAD_JAR }}
+          #FOD_UPLOAD_JAR: ${{ secrets.FOD_UPLOAD_JAR }}
           FOD_URL: "https://trial.fortify.com/"
           FOD_API_URL: "https://api.ams.fortify.com/"
           #FOD_API_URL: "https://api.trial.fortify.com/"
