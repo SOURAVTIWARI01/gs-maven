@@ -19,6 +19,8 @@ name: Fortify AST Scan
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "pom.xml"  
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
@@ -43,7 +45,7 @@ jobs:
         uses: actions/dependency-review-action@v3
         with:
           base-ref: ${{ github.event.pull_request.base.ref }}
-          head-ref: ${{ github.event.pull_request.head.ref }}
+          head-ref: refs/heads/main
 
       # Java is required to run the various Fortify utilities. Ensuring proper version is installed on the runner.
       - name: Setup Java
