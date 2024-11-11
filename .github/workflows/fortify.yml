@@ -22,7 +22,7 @@ name: Fortify on Demand Scan
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - "package.json"  # your manifest(s) here
       - "pom.xml"       # all of them 😊    
