@@ -23,8 +23,12 @@ on:
   workflow_dispatch:
   push:
     branches: [ master ]
-  schedule:
-    - cron: '28 2 * * 0'
+    paths:
+      - "package.json"  # your manifest(s) here
+      - "pom.xml"       # all of them 😊    
+  # schedule:
+  #   - cron: '28 2 * * 0'
+
 
 jobs:
   FoD-SAST-Scan:
@@ -40,6 +44,12 @@ jobs:
       # Check out source code
       - name: Check Out Source Code
         uses: actions/checkout@v3
+        
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v3
+        with:
+          base-ref: refs/heads/main~1
+          head-ref: refs/heads/main
 
       # Java is required to run the various Fortify utilities.
       # When scanning a Java application, please use the appropriate Java version for building your application.
