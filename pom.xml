@@ -18,7 +18,12 @@
                     <groupId>com.datastax.cassandra</groupId>
                     <artifactId>cassandra-driver-extras</artifactId>
                     <version>3.11.4</version>
-                </dependency>		
+                </dependency>	
+		<dependency>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                        <version>2.15.2</version>
+                </dependency>
 		<!-- tag::joda[] -->
 		<dependency>
 			<groupId>joda-time</groupId>
